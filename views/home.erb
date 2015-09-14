@@ -1,0 +1,29 @@
+<div class="col-md-6 col-md-offset-3">
+  <form action="/notes" method="post" id="new-note-form">
+    <textarea placeholder="Write note here..." class="form-control" name="content"></textarea>
+    <input type="submit" class="btn-primary form-control" value="Create">
+  </form>
+
+  <ul class="list-group" id="list-notes">
+    <% @notes.each do |note| %>
+      <li class="list-group-item clearfix">
+        <div class="col-md-11">
+          <p><%= note.content %></p>
+          <p><i>Created at: <%= note.created_at %></i></p>
+          <div>
+            <a class="btn-xs" href="/notes/<%=note.id %>/edit">Edit</a>
+            <form action="/notes/<%= note.id %>" method="post" class="delete-form">
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" value="Delete" class="btn-xs btn-link">
+            </form>
+          </div>
+        </div>
+        <div class="col-md-1 done-sign">
+          <% if note.done? %>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

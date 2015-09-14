@@ -1,0 +1,17 @@
+#list-notes {
+  margin-top: 5%;
+}
+
+.done-sign span{
+  font-size: 1.5em;
+  color: green;
+}
+
+#new-note-form input[type=submit] {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.delete-form {
+  display: inline;
+}
